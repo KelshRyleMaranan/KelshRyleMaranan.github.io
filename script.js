@@ -7,3 +7,6 @@ if (track) {
   });
   copies.forEach(c => track.appendChild(c));
 }
+
+const yr = document.getElementById("yr");
+if (yr) yr.textContent = new Date().getFullYear();

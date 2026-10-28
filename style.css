@@ -15,7 +15,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--head);font-weight:900;line-height:1;letter-spacing:-.02em}
 .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
 
-/* the navigation part zoro hah */
+/* navigation */
 nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
 nav b{font-family:var(--head);font-weight:900;font-size:1.05rem}
@@ -23,7 +23,7 @@ nav ul{display:flex;gap:20px;list-style:none;padding:0;font-size:.85rem;font-wei
 nav ul a:hover{color:var(--accent)}
 @media(max-width:620px){nav ul li:nth-child(n+4){display:none}nav ul{gap:14px}}
 
-/* the hero hehe */
+/* hero */
 .hero{padding:clamp(60px,12vw,130px) 0 80px}
 .hero h1{font-size:clamp(3rem,11vw,7.5rem);max-width:10ch}
 .hero .role{font-family:var(--head);font-weight:800;font-size:clamp(1.1rem,3vw,1.6rem);margin-top:22px}
@@ -33,20 +33,20 @@ nav ul a:hover{color:var(--accent)}
 .btn.solid{background:var(--ink);color:var(--bg)}
 .btn.line{border:1.5px solid var(--ink)}
 
-/* panels and section headings grr*/
+/* panels and section headings */
 .panel{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,40px);box-shadow:0 18px 50px rgba(0,0,0,.06);margin-bottom:28px}
 .head-row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
 .head-row h2{font-size:clamp(2.2rem,6vw,3.6rem)}
 .head-row p{max-width:34ch;color:var(--mute);font-size:.92rem}
 
-/* the services part heh*/
+/* services */
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .svc{border:1px solid var(--line);border-radius:22px;padding:24px;background:var(--bg)}
 .svc .ic{width:42px;height:42px;border:1px solid var(--line);background:var(--card);border-radius:50%;display:grid;place-items:center;margin-bottom:34px;font-size:.85rem;font-weight:600}
 .svc h3{font-size:1.5rem;margin-bottom:8px}
 .svc p{font-size:.88rem;color:var(--mute)}
 
-/* the skills part idk */
+/* skills */
 .pill{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 16px;font-weight:600;font-size:.85rem;white-space:nowrap}
 .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;gap:12px;width:max-content;animation:slide 35s linear infinite}
@@ -59,3 +59,43 @@ nav ul a:hover{color:var(--accent)}
   .track [aria-hidden="true"]{display:none}
   html{scroll-behavior:auto}
 }
+
+/* projects */
+.projects{padding:50px 0 20px}
+.projects .head-row h2{font-size:clamp(2.6rem,8vw,5rem)}
+.proj{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,50px);align-items:center;margin:50px 0}
+.proj:nth-child(even){grid-template-columns:1fr 1.3fr}
+.proj:nth-child(even) .shot{order:2}
+@media(max-width:760px){
+  .proj,.proj:nth-child(even){grid-template-columns:1fr}
+  .proj:nth-child(even) .shot{order:0}
+}
+.shot{display:block;position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);box-shadow:0 24px 50px rgba(0,0,0,.14);transition:transform .25s}
+.shot:hover{transform:translateY(-4px)}
+.shot::before{content:"";display:block;height:22px;background:#1b1b22;background-image:radial-gradient(circle,#ff5f57 3px,transparent 4px),radial-gradient(circle,#febc2e 3px,transparent 4px),radial-gradient(circle,#28c840 3px,transparent 4px);background-size:16px 22px;background-position:8px 0,24px 0,40px 0;background-repeat:no-repeat}
+.shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.shot .visit{position:absolute;right:12px;bottom:12px;background:var(--ink);color:var(--bg);font-size:.75rem;font-weight:600;padding:6px 14px;border-radius:999px;opacity:0;transition:opacity .2s}
+.shot:hover .visit,.shot:focus-visible .visit{opacity:1}
+@media(hover:none){.shot .visit{opacity:1}}
+.proj h3{font-size:clamp(2rem,5vw,3rem);text-transform:uppercase;margin:6px 0 16px}
+.proj .bar{width:54px;height:3px;background:var(--line);margin-bottom:18px}
+.proj p.desc{color:var(--mute);margin-bottom:18px;font-size:.95rem}
+.tag{display:inline-block;border:1px solid var(--ink);padding:3px 12px;font-size:.72rem;letter-spacing:.12em;font-weight:600;text-transform:uppercase;margin:0 6px 6px 0}
+.built{margin-top:14px;font-size:.82rem;color:var(--mute)}
+
+/* certifications */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.cert{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.cert h3{font-size:1.1rem;line-height:1.2;margin-top:4px}
+.cert small{color:var(--mute);font-size:.82rem}
+.status{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;font-weight:600;text-transform:uppercase;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 12px}
+.status.done{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+a.cert{transition:transform .2s}
+a.cert:hover{transform:translateY(-3px)}
+.cert .go{margin-top:auto;padding-top:14px;font-size:.72rem;letter-spacing:.14em;font-weight:600;text-transform:uppercase}
+.note{margin-top:18px;font-size:.85rem;color:var(--mute)}
+
+/* contact and footer */
+.contact{padding:50px 0 70px}
+.contact h2{font-size:clamp(2.4rem,8vw,5.5rem);margin-bottom:26px;max-width:14ch}
+footer{border-top:1px solid var(--line);padding:22px 0;font-size:.8rem;color:var(--mute)}
